@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pillow To GFiles</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Définir un style pour le conteneur principal */
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Définir un style pour l'iframe pour cacher la partie supérieure */
+        #pillowIframe {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            
+        }
+
+        #pillowIframe iframe {
+            position: absolute;
+            top: -100px; /* Ajustez cette valeur pour masquer la partie supérieure */
+            width: 100%;
+            height: calc(100% + 100px); /* Pour compenser la partie supérieure coupée */
+            border: none;
+        }
+
+        /* Style pour les autres éléments */
+        #fileDropArea,
+        #linkInputArea,
+        button {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px; /* Limiter la largeur pour éviter le débordement */
+        }
+    </style>
+</head>
+<body>
+    <!-- Placer l'iframe en haut -->
+    <div id="pillowIframe">
+        <iframe src="https://pillowcase.su/" frameborder="0"></iframe>
+    </div>
+
+    <div id="fileDropArea">
+        <p>Drag and drop a file here, or click to select file</p>
+        <input type="file" id="fileInput" accept=".mp3, .m4a, .wav, .ogg, .flac, .aif, .aiff" >
+    </div>
+    <div id="linkInputArea">
+        <label for="audioLink">Enter Pillow link:</label><br>
+        <input type="text" id="audioLink" name="audioLink">
+    </div>
+    <button onclick="generateHTML()">Generate HTML</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
