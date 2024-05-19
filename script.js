@@ -8,6 +8,12 @@ function generateHTML() {
     }
 
     const fileName = file.name.replace(/\.[^/.]+$/, "");
+    // Construire le lien avec le nom du fichier
+    var link = `https://gffiles.github.io/GFiles/${fileName}.html`;
+
+    // Afficher le lien généré dans l'élément #generatedLink
+    var generatedLink = document.getElementById('generatedLink');
+    generatedLink.innerHTML = `<a href="${link}" target="_blank">${link}</a>`;
 
     // Convertir le lien Pillowcase au format souhaité
     let convertedLink = audioLink;
